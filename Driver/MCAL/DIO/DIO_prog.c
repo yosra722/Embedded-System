@@ -10,22 +10,22 @@ void DIO_voidsetdirection(u8 PortID,u8 PinID,u8 Direction)
 {
     if(PortID <4 && PinID <8){
         if(Direction == OUTPUT){
-            switch (PORTID)
+            switch (PortID)
             {
-                case PORTa:SET_BIT(DDRA,PINID); break;
-                case PORTb:SET_BIT(DDRB,PINID); break;
-                case PORTc:SET_BIT(DDRC,PINID); break;
-                case PORTd:SET_BIT(DDRD,PINID); break;
+                case PORTa:SET_BIT(DDRA,PinID); break;
+                case PORTb:SET_BIT(DDRB,PinID); break;
+                case PORTc:SET_BIT(DDRC,PinID); break;
+                case PORTd:SET_BIT(DDRD,PinID); break;
 
             }
         }
         else if(Direction == INPUT){
-            switch (PORTID)
+            switch (PortID)
             {
-                case PORTa:CLR_BIT(DDRA,PINID); break;
-                case PORTb:CLR_BIT(DDRB,PINID); break;
-                case PORTc:CLR_BIT(DDRC,PINID); break;
-                case PORTd:CLR_BIT(DDRD,PINID); break;
+                case PORTa:CLR_BIT(DDRA,PinID); break;
+                case PORTb:CLR_BIT(DDRB,PinID); break;
+                case PORTc:CLR_BIT(DDRC,PinID); break;
+                case PORTd:CLR_BIT(DDRD,PinID); break;
 
             }
         }
@@ -78,22 +78,22 @@ void DIO_voidsetPinValue(u8 PortID,u8 PinID,u8 Value)
     if(PortID <4 && PinID <8){
         if(Value==HIGH)
         {
-            switch (PORTID)
+            switch (PortID)
             {
-                case PORTA:SET_BIT(PORTA,PINID); break;
-                case PORTB:SET_BIT(PORTB,PINID); break;
-                case PORTC:SET_BIT(PORTC,PINID); break;
-                case PORTD:SET_BIT(PORTD,PINID); break;
+                case PORTA:SET_BIT(PORTA,PinID); break;
+                case PORTB:SET_BIT(PORTB,PinID); break;
+                case PORTC:SET_BIT(PORTC,PinID); break;
+                case PORTD:SET_BIT(PORTD,PinID); break;
             }
         }
 
         else if(Value==LOW){
-            switch (PORTID)
+            switch (PortID)
             {
-                case PORTA:CLR_BIT(PORTA,PINID); break;
-                case PORTB:CLR_BIT(PORTB,PINID); break;
-                case PORTC:CLR_BIT(PORTC,PINID); break;
-                case PORTD:CLR_BIT(PORTD,PINID); break;
+                case PORTA:CLR_BIT(PORTA,PinID); break;
+                case PORTB:CLR_BIT(PORTB,PinID); break;
+                case PORTC:CLR_BIT(PORTC,PinID); break;
+                case PORTD:CLR_BIT(PORTD,PinID); break;
             }
         }
         else {
