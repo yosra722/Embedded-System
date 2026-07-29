@@ -12,20 +12,20 @@ void DIO_voidsetdirection(u8 PortID,u8 PinID,u8 Direction)
         if(Direction == OUTPUT){
             switch (PortID)
             {
-                case PORTa:SET_BIT(DDRA,PinID); break;
-                case PORTb:SET_BIT(DDRB,PinID); break;
-                case PORTc:SET_BIT(DDRC,PinID); break;
-                case PORTd:SET_BIT(DDRD,PinID); break;
+                case PORTA:SET_BIT(DDRA,PinID); break;
+                case PORTB:SET_BIT(DDRB,PinID); break;
+                case PORTC:SET_BIT(DDRC,PinID); break;
+                case PORTD:SET_BIT(DDRD,PinID); break;
 
             }
         }
         else if(Direction == INPUT){
             switch (PortID)
             {
-                case PORTa:CLR_BIT(DDRA,PinID); break;
-                case PORTb:CLR_BIT(DDRB,PinID); break;
-                case PORTc:CLR_BIT(DDRC,PinID); break;
-                case PORTd:CLR_BIT(DDRD,PinID); break;
+                case PORTA:CLR_BIT(DDRA,PinID); break;
+                case PORTB:CLR_BIT(DDRB,PinID); break;
+                case PORTC:CLR_BIT(DDRC,PinID); break;
+                case PORTD:CLR_BIT(DDRD,PinID); break;
 
             }
         }
