@@ -52,14 +52,14 @@ void LCD_voidSendData(u8 u8Data)
 
 static void LCD_voidPutonBus(u8 u8Char)
 {
-    DIO_voidSetPinValue(LCD_D0,Get_Bit(u8Char,0));
-    DIO_voidSetPinValue(LCD_D1,Get_Bit(u8Char,1));
-    DIO_voidSetPinValue(LCD_D2,Get_Bit(u8Char,2));
-    DIO_voidSetPinValue(LCD_D3,Get_Bit(u8Char,3));
-    DIO_voidSetPinValue(LCD_D4,Get_Bit(u8Char,4));
-    DIO_voidSetPinValue(LCD_D5,Get_Bit(u8Char,5));
-    DIO_voidSetPinValue(LCD_D6,Get_Bit(u8Char,6));
-    DIO_voidSetPinValue(LCD_D7,Get_Bit(u8Char,7));
+    DIO_voidSetPinValue(LCD_D0,GET_BIT(u8Char,0));
+    DIO_voidSetPinValue(LCD_D1,GET_BIT(u8Char,1));
+    DIO_voidSetPinValue(LCD_D2,GET_BIT(u8Char,2));
+    DIO_voidSetPinValue(LCD_D3,GET_BIT(u8Char,3));
+    DIO_voidSetPinValue(LCD_D4,GET_BIT(u8Char,4));
+    DIO_voidSetPinValue(LCD_D5,GET_BIT(u8Char,5));
+    DIO_voidSetPinValue(LCD_D6,GET_BIT(u8Char,6));
+    DIO_voidSetPinValue(LCD_D7,GET_BIT(u8Char,7));
 
 }
 
@@ -95,7 +95,24 @@ void LCD_voidWriteString(u8 * u8string)
 
 }
 
-void LCD_voidWriteNumber(u8 u8Number)
+void LCD_voidWriteNumber(u16 u16Number)
 {
-	LCD_voidSendData(u8Number+48);
+	u8 v[5];
+	u8 i;
+    for(i=0;i<5;i++){
+        if(u16Number==0){
+        	v[i]='\0';
+            break;
+        }
+        else {
+            v[i]=(u16Number%10)+'0';
+            u16Number /=10;
+        }
+    }
+    while(i > 0 )
+    {
+    	LCD_voidSendData(v[--i]);
+
+    }
+
 }
